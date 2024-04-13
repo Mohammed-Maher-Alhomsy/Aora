@@ -6,11 +6,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text className="text-indigo-600 text-3xl">Aora</Text>
-      <Link href="/profile" className="text-primary">
-        Profile
+      <Link href="/home" className="text-primary">
+        Home
       </Link>
 
-      <Text className="text-red-700 text-3xl font-pextrabold">Maher</Text>
       <StatusBar style="auto" />
     </View>
   );
