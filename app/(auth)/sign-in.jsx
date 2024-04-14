@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 
+import { Link } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { images } from "../../constants";
 import FormField from "../../components/FormField";
 import CustomButton from "../../components/CustomButton";
-import { Link } from "expo-router";
 
 const SignIn = () => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -15,9 +15,9 @@ const SignIn = () => {
   const submit = () => {};
 
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="bg-primary flex-1">
       <ScrollView>
-        <View className="w-full h-full justify-center px-4 my-6">
+        <View className="w-full min-h-[85vh] justify-center px-4 my-6">
           <Image
             source={images.logo}
             resizeMode="contain"
@@ -73,5 +73,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-
-const styles = StyleSheet.create({});
