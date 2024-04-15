@@ -28,7 +28,7 @@ const SignIn = () => {
     try {
       await signIn(email, password);
 
-      const result = getCurrentUser();
+      const result = await getCurrentUser();
 
       setUser(result);
       setIsLoggedIn(true);
