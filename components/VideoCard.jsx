@@ -70,6 +70,7 @@ const VideoCard = ({
         >
           <Image
             source={{ uri: thumbnail }}
+            // src={thumbnail}
             className="w-full h-full rounded-xl mt-3"
             resizeMode="cover"
           />
