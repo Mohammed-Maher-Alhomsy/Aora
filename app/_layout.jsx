@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 import { useFonts } from "expo-font";
+import { StatusBar } from "expo-status-bar";
 import { SplashScreen, Stack } from "expo-router";
 
 import GlobalProvider from "../context/GlobalProvider";
@@ -35,12 +36,14 @@ const RootLayout = () => {
 
   return (
     <GlobalProvider>
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="profile" options={{ headerShown: false }} />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="index" />
+        <Stack.Screen name="profile" />
         <Stack.Screen name="(tabs)" />
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="(auth)" />
       </Stack>
+
+      <StatusBar style="light" />
     </GlobalProvider>
   );
 };
