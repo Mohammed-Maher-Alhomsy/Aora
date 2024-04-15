@@ -1,30 +1,41 @@
-import { useState } from "react";
-import { FlatList, Image, RefreshControl, Text, View } from "react-native";
+import { useEffect, useState } from "react";
+import {
+  Alert,
+  FlatList,
+  Image,
+  RefreshControl,
+  Text,
+  View,
+} from "react-native";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { images } from "../../constants";
+import { getAllPosts } from "../../lib/appwrite";
 import Trending from "../../components/Trending";
+import { useAppwrite } from "../../lib/useAppwrite";
 import EmptyState from "../../components/EmptyState";
 import SearchInput from "../../components/SearchInput";
 
 const Home = () => {
   const [refreshing, setRefreshing] = useState(false);
 
-  const onRefresh = () => {
-    setRefreshing(true);
+  const { data: posts, refetch } = useAppwrite(getAllPosts);
 
-    setTimeout(() => {
-      setRefreshing(false);
-    }, 5000);
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await refetch();
+    setRefreshing(false);
   };
 
   return (
     <SafeAreaView className="bg-primary h-full">
       <FlatList
-        data={[]}
+        data={posts}
         keyExtractor={(item) => item.$id}
-        renderItem={({ item }) => <Text className="text-white">{item.id}</Text>}
+        renderItem={({ item }) => (
+          <Text className="text-white">{item.title}</Text>
+        )}
         ListHeaderComponent={() => (
           <View className="my-6 px-4 space-y-6">
             <View className="justify-between items-start flex-row mb-6">
