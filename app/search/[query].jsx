@@ -12,7 +12,6 @@ import SearchInput from "../../components/SearchInput";
 
 const Search = () => {
   const { query } = useLocalSearchParams();
-
   const { data: posts, refetch } = useAppwrite(() => searchPosts(query));
 
   useEffect(() => {
