@@ -41,6 +41,7 @@ const RootLayout = () => {
         <Stack.Screen name="profile" />
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="(auth)" />
+        <Stack.Screen name="search/[query]" />
       </Stack>
 
       <StatusBar style="light" />
